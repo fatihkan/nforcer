@@ -5,10 +5,10 @@
  * ! To clear local storage: (https://www.leadshook.com/help/how-to-clear-local-storage-in-google-chrome-browser/).
  */
 
-'use strict';
+"use strict";
 
-window.assetsPath = document.documentElement.getAttribute('data-assets-path');
-window.templateName = document.documentElement.getAttribute('data-template');
+window.assetsPath = document.documentElement.getAttribute("data-assets-path");
+window.templateName = document.documentElement.getAttribute("data-template");
 window.rtlSupport = true; // set true for rtl support (rtl + ltr), false for ltr only.
 
 /**
@@ -23,13 +23,13 @@ window.rtlSupport = true; // set true for rtl support (rtl + ltr), false for ltr
  * defaultTextDir: 'ltr', 'rtl' (rtlSupport must be true for rtl mode)
  */
 
-if (typeof TemplateCustomizer !== 'undefined') {
+if (typeof TemplateCustomizer !== "undefined") {
   window.templateCustomizer = new TemplateCustomizer({
-    cssPath: assetsPath + 'vendor/css' + (rtlSupport ? '/rtl' : '') + '/',
-    themesPath: assetsPath + 'vendor/css' + (rtlSupport ? '/rtl' : '') + '/',
-    displayCustomizer: true,
+    cssPath: assetsPath + "vendor/css" + (rtlSupport ? "/rtl" : "") + "/",
+    themesPath: assetsPath + "vendor/css" + (rtlSupport ? "/rtl" : "") + "/",
+    displayCustomizer: false,
     // defaultTextDir: 'rtl',
     // defaultStyle: 'dark',
-    controls: ['rtl', 'style']
+    controls: ["rtl", "style"],
   });
 }
