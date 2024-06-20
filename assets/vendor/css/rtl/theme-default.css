@@ -360,15 +360,15 @@ button.list-group-item-primary.active {
 }
 .btn-primary:hover {
     color: #fff !important;
-    background-color: #5c61e6 !important;
-    border-color: #5c61e6 !important;
+    background-color: #bd4640 !important;
+    border-color: #bd4640 !important;
 }
 .btn-check:focus + .btn-primary,
 .btn-primary:focus,
 .btn-primary.focus {
     color: #fff;
-    background-color: #5c61e6;
-    border-color: #5c61e6;
+    background-color: #bd4640;
+    border-color: #bd4640;
 }
 .btn-check:checked + .btn-primary,
 .btn-check:active + .btn-primary,
@@ -377,8 +377,8 @@ button.list-group-item-primary.active {
 .btn-primary.show.dropdown-toggle,
 .show > .btn-primary.dropdown-toggle {
     color: #fff !important;
-    background-color: #5c61e6 !important;
-    border-color: #5c61e6 !important;
+    background-color: #bd4640 !important;
+    border-color: #bd4640 !important;
 }
 .btn-primary.disabled,
 .btn-primary:disabled {
@@ -1498,10 +1498,10 @@ li.ui-timepicker-selected,
 }
 
 .landing-features .features-icon-wrapper .features-icon-box .features-icon {
-    border: 2px solid rgba(102, 108, 255, 0.32);
+    border: 2px solid rgba(244, 85, 76, 0.32);
 }
 .landing-features .features-icon-wrapper .features-icon-box:hover .features-icon {
-    background-color: rgba(102, 108, 255, 0.16);
+    background-color: rgba(244, 85, 76, 0.16);
 }
 
 .bg-navbar-theme {
