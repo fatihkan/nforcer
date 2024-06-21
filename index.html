@@ -671,13 +671,14 @@
                             alt="section title icon"
                             class="me-3"
                         />
-                        <span class="text-uppercase">Contact</span>
+                        <span class="text-uppercase">İletişim</span>
                     </h6>
                     <h5 class="text-center mb-2">
-                        <span class="display-5 fs-4 fw-bold">Let's</span> work together
+                        <span class="display-5 fs-4 fw-bold">Haydi</span> birlikte
+                        çalışalım
                     </h5>
                     <p class="text-center fw-medium mb-4 mb-md-12 pb-3">
-                        Do you have any questions or comments? Send us a message.
+                        Sorularınız veya yorumlarınız var mı? Bize bir mesaj gönderin.
                     </p>
                     <div class="row gy-6">
                         <div class="col-lg-5">
@@ -686,11 +687,11 @@
                                     class="bg-primary rounded-4 text-white card-body p-8"
                                 >
                                     <p class="fw-medium mb-1_5 tagline">
-                                        Get in touch with us
+                                        Bizimle iletişime geçin
                                     </p>
                                     <h4 class="text-white mb-5 title">
-                                        Share your ideas or requirements with our
-                                        experts.
+                                        Fikirlerinizi veya gereksinimlerinizi
+                                        uzmanlarımızla paylaşın.
                                     </h4>
                                     <img
                                         src="./assets/img/front-pages/landing-page/let’s-contact.png"
@@ -698,9 +699,9 @@
                                         class="w-100 mb-5"
                                     />
                                     <p class="mb-0 description">
-                                        Want more customization, more features, and more?
-                                        Don’t worry, we offer you a team of experienced
-                                        professionals.
+                                        Daha fazla özelleştirme, daha fazla özellik mi
+                                        istiyorsunuz? Endişelenmeyin, size deneyimli
+                                        profesyonellerden oluşan bir ekip sunuyoruz.
                                     </p>
                                 </div>
                             </div>
@@ -708,8 +709,8 @@
                         <div class="col-lg-7">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="mb-6">Share Your Ideas</h5>
-                                    <form>
+                                    <h5 class="mb-6">Share Your Idea</h5>
+                                    <form id="contactForm">
                                         <div class="row g-5">
                                             <div class="col-md-6">
                                                 <div
@@ -718,15 +719,15 @@
                                                     <input
                                                         type="text"
                                                         class="form-control"
-                                                        id="basic-default-fullname"
-                                                        placeholder="John Doe"
+                                                        id="name"
+                                                        placeholder="Name lastName"
+                                                        required
                                                     />
-                                                    <label for="basic-default-fullname"
+                                                    <label for="name"
                                                         >Your full name</label
                                                     >
                                                 </div>
                                             </div>
-
                                             <div class="col-md-6">
                                                 <div
                                                     class="form-floating form-floating-outline"
@@ -734,15 +735,15 @@
                                                     <input
                                                         type="email"
                                                         class="form-control"
-                                                        id="basic-default-email"
-                                                        placeholder="johndoe99@gmail.com"
+                                                        id="email"
+                                                        placeholder="mail@mail.com"
+                                                        required
                                                     />
-                                                    <label for="basic-default-email"
+                                                    <label for="email"
                                                         >Your email address</label
                                                     >
                                                 </div>
                                             </div>
-
                                             <div class="col-12">
                                                 <div
                                                     class="form-floating form-floating-outline"
@@ -751,9 +752,10 @@
                                                         class="form-control h-px-250"
                                                         placeholder="Your message"
                                                         aria-label="Your message"
-                                                        id="basic-default-message"
+                                                        id="message"
+                                                        required
                                                     ></textarea>
-                                                    <label for="basic-default-message"
+                                                    <label for="message"
                                                         >Your message</label
                                                     >
                                                 </div>
@@ -821,5 +823,31 @@
 
         <!-- Page JS -->
         <script src="./assets/js/front-page-landing.js"></script>
+        <script>
+            document
+                .getElementById("contactForm")
+                .addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    const name = document.getElementById("name").value;
+                    const email = document.getElementById("email").value;
+                    const message = document.getElementById("message").value;
+
+                    fetch("http://localhost:8091/api/public/info/sendmail", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ name, email, message }),
+                    })
+                        .then((response) => response.json())
+                        .then((data) => {
+                            alert(data.message);
+                        })
+                        .catch((error) => {
+                            console.error("Error:", error);
+                        });
+                });
+        </script>
     </body>
 </html>
